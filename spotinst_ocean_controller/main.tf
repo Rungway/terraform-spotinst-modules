@@ -1,3 +1,7 @@
+terraform {
+  required_version = ">= 0.12"
+}
+
 resource "kubernetes_config_map" "configmap" {
   metadata {
     name      = "spotinst-kubernetes-cluster-controller-config"
@@ -6,9 +10,9 @@ resource "kubernetes_config_map" "configmap" {
 
   # TODO(liran): Remove the `spotinst.` prefix.
   data = {
-    "spotinst.token"              = "${var.spotinst_token}"
-    "spotinst.account"            = "${var.spotinst_account}"
-    "spotinst.cluster-identifier" = "${var.spotinst_cluster_identifier}"
+    "spotinst.token"              = var.spotinst_token
+    "spotinst.account"            = var.spotinst_account
+    "spotinst.cluster-identifier" = var.spotinst_cluster_identifier
   }
 }
 

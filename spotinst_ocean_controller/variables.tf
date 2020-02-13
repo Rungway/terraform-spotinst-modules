@@ -9,3 +9,4 @@ variable "spotinst_account" {
 variable "spotinst_cluster_identifier" {
   description = "Your cluster identifier"
 }
+
